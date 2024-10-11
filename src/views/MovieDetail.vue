@@ -21,7 +21,7 @@ const toggleFavorite = () => {
   store.toggleFavorite(movie.value); // Appelle la méthode dans le store
 };
 onMounted(async () => {
-  const url = `http://www.omdbapi.com/?apikey=31ff437f&i=${route.params.id}`;
+  const url = `https://www.omdbapi.com/?apikey=${import.meta.env.VITE_API_KEY}&i=${route.params.id}`;
   const response = await fetch(url);
   const data = await response.json();
   movie.value = data;

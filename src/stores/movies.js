@@ -26,7 +26,7 @@ export const useMoviesStore = defineStore('movies', () => {
     }).toString();
     
     try {
-      const response = await fetch(`http://www.omdbapi.com/?apikey=31ff437f&${query}`);
+      const response = await fetch(`https://www.omdbapi.com/?apikey=${import.meta.env.VITE_API_KEY}&${query}`);
       const data = await response.json();
       if (data.Error) {
         movies.value = [];
